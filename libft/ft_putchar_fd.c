@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/10 17:35:39 by eburnet          ###   ########.fr       */
+/*   Created: 2023/10/10 15:51:27 by eburnet           #+#    #+#             */
+/*   Updated: 2023/11/07 12:57:06 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *, ...)
+#include <unistd.h>
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
 {
-	write(1, "Hey", 3);
+	write(fd, &c, 1);
 }
+
+/* int	main()
+{
+	ft_putchar_fd('E', 2);
+	return (0);
+} */

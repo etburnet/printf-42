@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/10 17:35:39 by eburnet          ###   ########.fr       */
+/*   Created: 2023/09/06 09:53:06 by eburnet           #+#    #+#             */
+/*   Updated: 2023/11/07 12:56:42 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *, ...)
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
-	write(1, "Hey", 3);
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
+		return (0);
 }
+
+/* #include <stdio.h>
+int main()
+{
+	printf("%d", ft_isdigit(49));
+	return 0;
+} */

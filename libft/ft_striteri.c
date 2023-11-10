@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/10 17:35:39 by eburnet          ###   ########.fr       */
+/*   Created: 2023/10/17 11:17:57 by eburnet           #+#    #+#             */
+/*   Updated: 2023/11/10 16:50:21 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *, ...)
+#include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	write(1, "Hey", 3);
+	unsigned int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
+
+/* int	main()
+{
+	char str[] = "Salut guys";
+	ft_striteri(str, test_function);
+	printf("%s\n", str);
+} */

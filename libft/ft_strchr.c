@@ -1,16 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/10 17:35:39 by eburnet          ###   ########.fr       */
+/*   Created: 2023/09/13 10:57:08 by eburnet           #+#    #+#             */
+/*   Updated: 2023/11/09 10:49:17 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *, ...)
+#include <string.h>
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
 {
-	write(1, "Hey", 3);
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }
+
+/* #include <stdio.h>
+int	main(void)
+{
+	char	*s = "tripouille";
+
+	printf("%s", ft_strchr(s, 0));
+} */

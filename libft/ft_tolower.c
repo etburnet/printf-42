@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/10 17:35:39 by eburnet          ###   ########.fr       */
+/*   Created: 2023/09/06 10:29:13 by eburnet           #+#    #+#             */
+/*   Updated: 2023/11/07 12:58:12 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *, ...)
+#include "libft.h"
+
+char	ft_tolower(char c)
 {
-	write(1, "Hey", 3);
+	if (c >= 'A' && c <= 'Z')
+	{
+		c += 32;
+	}
+	return (c);
 }
+
+/* #include <stdio.h>
+int main()
+{
+	printf("%c", ft_tolower('A'));
+} */
