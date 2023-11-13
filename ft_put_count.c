@@ -6,20 +6,30 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:38:09 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/13 15:14:54 by eburnet          ###   ########.fr       */
+/*   Updated: 2023/11/13 20:56:01 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_strlen(char *s)
+int	ft_count_digits(long long int n)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	count = 1;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		count++;
+		n = -n;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (count);
 }
 
 int	ft_putnbr_base(unsigned long n, char *base)
@@ -31,7 +41,8 @@ int	ft_putnbr_base(unsigned long n, char *base)
 	{
 		ft_putnbr_base(n / base_len, base);
 	}
-	write(1, &base[n % base_len], 1);
+	ft_putchar(base[n % base_len]);
+	return (ft_count_digits(n));
 }
 
 int	ft_putnbr_unsigned(unsigned int n)
@@ -40,7 +51,8 @@ int	ft_putnbr_unsigned(unsigned int n)
 	{
 		ft_putnbr_unsigned(n / 10);
 	}
-	write(1, &((char []){n % 10 + 48}), 1);
+	ft_putchar(n % 10 + 48);
+	return (ft_count_digits(n));
 }
 
 int	ft_putnbr(int n)
@@ -51,25 +63,28 @@ int	ft_putnbr(int n)
 	if (nb < 0)
 	{
 		nb *= -1;
-		write(1, "-", 1);
+		ft_putchar('-');
 	}
 	if (nb >= 10)
 	{
 		ft_putnbr(nb / 10);
 	}
 	ft_putchar(nb % 10 + 48);
+	return (ft_count_digits(n));
 }
 
 int	ft_putstr(char *s)
 {
 	int		i;
 
+	if (s == NULL)
+		s = "(null)";
 	if (!s)
 		return (0);
 	i = 0;
 	while (s[i] != '\0')
 	{
-		write(1, &s[i], 1);
+		ft_putchar(s[i]);
 		i++;
 	}
 	return (i);
