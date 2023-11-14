@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/14 10:49:50 by eburnet          ###   ########.fr       */
+/*   Updated: 2023/11/14 11:56:47 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_p(va_list ap)
 	int				i;
 
 	i = 2;
-	adress = va_arg(ap, unsigned long);
+	adress = va_arg(ap, unsigned long long int);
 	ft_putstr("0x");
 	i += ft_putnbr_base(adress, "0123456789abcdef");
 	return (i);
@@ -106,5 +106,9 @@ int	main(void)
 	printf("%d\n", ft_printf(" %x ", 10));
 	printf("%d\n\n", printf(" %x ", 10));
 	printf("%d\n", ft_printf(" %x ", 11));
-	printf("%d\n\n", printf(" %x ", 11));
+	printf("%d\n\n\n", printf(" %x ", 11));
+	printf("%d\n", ft_printf(" %x ", -10));
+	printf("%d\n\n", printf(" %x ", -10));
+	printf("%d\n", ft_printf(" %x ", -11));
+	printf("%d\n\n", printf(" %x ", -11));
 } */

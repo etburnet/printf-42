@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:46:36 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/14 10:51:24 by eburnet          ###   ########.fr       */
+/*   Updated: 2023/11/14 11:56:59 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);
-int	ft_putnbr_base(unsigned long n, char *base);
+int	ft_putnbr_base(unsigned int n, char *base);
 int	ft_putnbr_unsigned(unsigned int n);
 int	ft_putnbr(int n);
 int	ft_putstr(char *s);

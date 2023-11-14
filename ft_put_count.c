@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:38:09 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/13 20:56:01 by eburnet          ###   ########.fr       */
+/*   Updated: 2023/11/14 12:07:34 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	ft_count_digits(long long int n)
 	return (count);
 }
 
-int	ft_putnbr_base(unsigned long n, char *base)
+int	ft_putnbr_base(unsigned int n, char *base)
 {
-	int	base_len;
+	unsigned int	base_len;
 
 	base_len = ft_strlen(base);
-	if (n >= (unsigned long)base_len)
+	if (n >= base_len)
 	{
 		ft_putnbr_base(n / base_len, base);
 	}
