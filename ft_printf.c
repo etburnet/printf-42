@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/14 13:26:57 by eburnet          ###   ########.fr       */
+/*   Updated: 2023/11/14 13:33:25 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ int	ft_strlen(char *s)
 
 int	ft_p(va_list ap)
 {
-	int				i;
+	unsigned long int	adress;
+	int					i;
 
-	if (va_arg(ap, unsigned long int) == 0)
+	adress = va_arg(ap, unsigned long int);
+	if (adress == 0)
+		i = ft_putstr("(nil)");
+	else
 	{
-		i = 0;
-		i += ft_putstr("(nil)");
-		return (i);
+		i = ft_putstr("0x");
+		i += ft_putnbr_base(adress, "0123456789abcdef");
 	}
-	i = 2;
-	ft_putstr("0x");
-	i += ft_putnbr_base(va_arg(ap, unsigned long int), "0123456789abcdef");
 	return (i);
 }
 
@@ -70,7 +70,6 @@ int	ft_type_management(const char *format, va_list ap)
 		len += ft_putnbr_unsigned(va_arg(ap, unsigned int));
 	else
 		return (0);
-
 	return (len);
 }
 
