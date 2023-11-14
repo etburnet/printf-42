@@ -4,6 +4,8 @@
 		"libft.h": "c",
 		"libftprintf.h": "c",
 		"ft_printf.h": "c",
-		"algorithm": "c"
-	}
+		"algorithm": "c",
+		"string.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }

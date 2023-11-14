@@ -1,0 +1,5 @@
+ft_printf.h.gch
+ft_printf.o
+ft_put_count.o
+libftprintf.a
+printfTester
