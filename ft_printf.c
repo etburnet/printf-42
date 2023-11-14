@@ -6,11 +6,13 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:23:18 by eburnet           #+#    #+#             */
-/*   Updated: 2023/11/14 11:56:47 by eburnet          ###   ########.fr       */
+/*   Updated: 2023/11/14 13:26:57 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+#include <stdio.h>
 
 int	ft_putchar(char c)
 {
@@ -30,13 +32,17 @@ int	ft_strlen(char *s)
 
 int	ft_p(va_list ap)
 {
-	unsigned long	adress;
 	int				i;
 
+	if (va_arg(ap, unsigned long int) == 0)
+	{
+		i = 0;
+		i += ft_putstr("(nil)");
+		return (i);
+	}
 	i = 2;
-	adress = va_arg(ap, unsigned long long int);
 	ft_putstr("0x");
-	i += ft_putnbr_base(adress, "0123456789abcdef");
+	i += ft_putnbr_base(va_arg(ap, unsigned long int), "0123456789abcdef");
 	return (i);
 }
 
@@ -63,7 +69,8 @@ int	ft_type_management(const char *format, va_list ap)
 	else if (*format == 'u')
 		len += ft_putnbr_unsigned(va_arg(ap, unsigned int));
 	else
-		return (1);
+		return (0);
+
 	return (len);
 }
 
@@ -74,16 +81,16 @@ int	ft_printf(const char *format, ...)
 
 	va_start (ap, format);
 	len = 0;
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
 			len += ft_type_management(format, ap);
-			format = format + 2;
+			format += 2;
 		}
-		while (*format != '\0' && *format != '%')
+		else
 		{
-			ft_putchar((char)*format);
+			ft_putchar(*format);
 			format++;
 			len++;
 		}
@@ -92,15 +99,14 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-/* #include <stdio.h>
-int	main(void)
+/* int	main(void)
 {
-	printf("%d\n", ft_printf(" %x ", 0));
-	printf("%d\n\n", printf(" %x ", 0));
-	printf("%d\n", ft_printf(" %x ", -5));
-	printf("%d\n\n", printf(" %x ", -5));
-	printf("%d\n", ft_printf(" %x ", 1));
-	printf("%d\n\n", printf(" %x ", 1));
+	printf("%d\n", ft_printf(" %p ", (void *)12345));
+	printf("%d\n\n", printf(" %p ", (void *)12345));
+	printf("%d\n", ft_printf(" %X ", 255));
+	printf("%d\n\n", printf(" %X ", 255));
+	printf("%d\n", ft_printf(" %x ", 255));
+	printf("%d\n\n", printf(" %x ", 255));
 	printf("%d\n", ft_printf(" %x ", 9));
 	printf("%d\n\n", printf(" %x ", 9));
 	printf("%d\n", ft_printf(" %x ", 10));
