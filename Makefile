@@ -6,7 +6,7 @@
 #    By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 12:48:48 by eburnet           #+#    #+#              #
-#    Updated: 2023/11/13 18:26:40 by eburnet          ###   ########.fr        #
+#    Updated: 2023/11/20 09:42:27 by eburnet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ HEADERS = ft_printf.h
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
-all : 
-	$(NAME)
+all : $(NAME)
 
 clean :
 	rm -f $(OBJS)
