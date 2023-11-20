@@ -6,7 +6,7 @@
 #    By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 12:48:48 by eburnet           #+#    #+#              #
-#    Updated: 2023/11/20 09:42:27 by eburnet          ###   ########.fr        #
+#    Updated: 2023/11/20 11:44:32 by eburnet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,3 +31,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+	
+.PHONY : all clean flcean re
